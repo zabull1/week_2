@@ -1,0 +1,40 @@
+
+SELECT COUNT(1)
+FROM green_taxi_data
+WHERE date(lpep_pickup_datetime) = '2019-01-15';
+
+
+SELECT MAX(trip_distance), lpep_pickup_datetime 
+FROM green_taxi_data 
+GROUP BY lpep_pickup_datetime 
+ORDER BY MAX(trip_distance) DESC
+LIMIT 1
+
+SELECT COUNT(1), passenger_count
+FROM green_taxi_data
+WHERE date(lpep_pickup_datetime) = '2019-01-01' AND (passenger_count=2 OR  passenger_count= 3)
+GROUP BY passenger_count
+
+
+SELECT 
+	zdo."Zone",
+	tip_amount
+
+FROM 
+	green_taxi_data g,
+	zones zpu,
+	zones zdo
+
+WHERE
+	g."PULocationID" = zpu."LocationID" AND
+	g."DOLocationID" = zdo."LocationID" AND
+	zpu."Zone" = 'Astoria'
+	
+GROUP BY 
+	zdo."Zone",
+	tip_amount
+	
+ORDER BY
+	tip_amount DESC
+
+LIMIT 1
