@@ -1,5 +1,5 @@
 from prefect.deployments import Deployment
-from Q1_etl_web_to_gcs import etl_web_to_gcs
+from Q4_etl_web_to_gcs import etl_web_to_gcs
 from prefect.filesystems import GitHub 
 
 storage = GitHub.load("zoom-github-week2")
