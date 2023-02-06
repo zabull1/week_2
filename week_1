@@ -1,3 +1,5 @@
+docker run -it python:3.9 bash
+root@4ffa5d3070b4:/# pip list
 
 SELECT COUNT(1)
 FROM green_taxi_data
